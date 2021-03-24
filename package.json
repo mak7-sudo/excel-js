@@ -1,0 +1,24 @@
+{
+  "name": "excel-js",
+  "version": "1.0.0",
+  "description": "Excel in Pure JS",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mak7-sudo/excel-js.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "js"
+  ],
+  "author": "Maxim Zaitsev <zacevmax@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mak7-sudo/excel-js/issues"
+  },
+  "homepage": "https://github.com/mak7-sudo/excel-js#readme"
+}
