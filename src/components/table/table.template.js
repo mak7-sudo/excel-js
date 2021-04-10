@@ -3,18 +3,34 @@ const CODES = {
 	Z: 90
 }
 
-function toCell() {
-	return `<div class="cell" contenteditable></div>`
+function toCell(_, index) {
+	return `<div class="cell" contenteditable data-col="${index}"></div>`
 }
 
-function toColumn(col) {
-	return `<div class="column">${col}</div>`
+function toColumn(col, index) {
+	return `
+		<div class="column" 
+			data-type="resizable"
+			data-col="${index}"
+			onselectstart="return false"
+		>
+				${col}
+			<div class="col-resize" data-resize="col"></div>
+		</div>
+	`
 }
 
 function createRow(index, content) {
+	const resizer = index
+		? '<div class="row-resize" data-resize="row"></div>'
+		: ''
+
 	return `
-		<div class="row">
-			<div class="row-info">${index ? index : ''}</div>
+		<div class="row" data-type="resizable">
+			<div class="row-info" onselectstart="return false">
+				${index ? index : ''}
+				${resizer}
+			</div>
 			<div class="row-data">${content}</div>
 		</div>
 	`
@@ -27,8 +43,6 @@ function toChar(_, index) {
 export function createTable(rowsCount = 15) {
 	const colsCount = CODES.Z - CODES.A + 1
 	const rows = []
-	// const rowNumber = ''
-	// const colCells = []
 
 	const cols = new Array(colsCount)
 		.fill('')
